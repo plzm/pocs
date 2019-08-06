@@ -1,0 +1,34 @@
+{
+	"firstName": "John",
+	"middleInitial": "X",
+	"lastName": "Doe",
+	"userName": "jdoe",
+	"title": "Mr."
+},
+{
+	"firstName": "Jane",
+	"middleInitial": "C",
+	"lastName": "Smith",
+	"userName": "jsmith",
+	"title": "Dr."
+},
+{
+	"firstName": "Fred",
+	"middleInitial": "D",
+	"lastName": "Mercury",
+	"userName": "fmercury",
+	"title": "Mr."
+},
+{
+	"firstName": "Doris",
+	"middleInitial": "V",
+	"lastName": "Buren",
+	"userName": "dburen",
+	"title": "Mrs."
+}
+
+GraphQL
+g.addV('account').property('firstName', 'John').property('middleInitial', 'X').property('lastName', 'Doe').property('userName', 'jdoe').property('title', 'Mr.')
+g.addV('account').property('firstName', 'Jane').property('middleInitial', 'C').property('lastName', 'Smith').property('userName', 'jsmith').property('title', 'Dr.')
+g.addV('account').property('firstName', 'Fred').property('middleInitial', 'D').property('lastName', 'Mercury').property('userName', 'fmercury').property('title', 'Mr.')
+g.addV('account').property('firstName', 'Doris').property('middleInitial', 'V').property('lastName', 'Buren').property('userName', 'dburen').property('title', 'Mrs.')
