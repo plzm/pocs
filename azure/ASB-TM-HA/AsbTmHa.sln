@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30907.101
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AsbTmHa.App", "TrafficManagerLookup\AsbTmHa.App.csproj", "{09A83D1B-8FB8-4802-A16C-7EBAF0E8B15C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AsbTmHa.App", "AsbTmHa.App\AsbTmHa.App.csproj", "{09A83D1B-8FB8-4802-A16C-7EBAF0E8B15C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrafficMgrLookup", "TrafficMgrLookup\TrafficMgrLookup.csproj", "{FDA152DC-CBBE-44DE-8C9F-7D654FDFDF2E}"
 EndProject
