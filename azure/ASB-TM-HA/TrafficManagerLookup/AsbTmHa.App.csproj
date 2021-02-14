@@ -3,10 +3,12 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>net5.0</TargetFramework>
+    <RootNamespace>AsbTmHa</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="DnsClient" Version="1.3.2" />
+    <ProjectReference Include="..\AsbClient\MessageProducer.csproj" />
+    <ProjectReference Include="..\TrafficMgrLookup\TrafficMgrLookup.csproj" />
   </ItemGroup>
 
 </Project>
