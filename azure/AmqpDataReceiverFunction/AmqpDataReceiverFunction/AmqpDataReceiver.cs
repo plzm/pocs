@@ -13,12 +13,18 @@ namespace AmqpDataReceiverFunction
         [FunctionName("AmqpDataReceiver")]
         public static void Run([ServiceBusTrigger("q1", Connection = "ServiceBusConnectionString")]Message message, ILogger log)
         {
-            byte[] bytes = message.Body;
+            if (message == null)
+                throw new ArgumentNullException(nameof(message));
 
-            string body = Encoding.UTF8.GetString(bytes);
-            log.LogInformation("Body from Bytes[] payload: " + (body ?? "Null"));
+            // Get message.Body as byte array
+            byte[] messageBodyBytes = message.Body;
 
-            
+            // Decode message body byte array as UTF8 string
+			string messageBody = Encoding.UTF8.GetString(messageBodyBytes);
+
+            log.LogInformation("Message ContentType: " + (message.ContentType ?? "Null"));
+            log.LogInformation("Message Body Length: " + (messageBody.Length.ToString()));
+			log.LogInformation("Message Body: " + (messageBody ?? "Null"));
         }
     }
 }
