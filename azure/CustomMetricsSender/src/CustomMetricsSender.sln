@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31112.23
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomMetricsSender", "CustomMetricsSender\CustomMetricsSender.csproj", "{1E92F6A3-8329-4701-8A68-3F914B580355}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1E92F6A3-8329-4701-8A68-3F914B580355}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E92F6A3-8329-4701-8A68-3F914B580355}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E92F6A3-8329-4701-8A68-3F914B580355}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E92F6A3-8329-4701-8A68-3F914B580355}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {61B245AC-55B7-41A4-AF6C-F2CED20E35D7}
+	EndGlobalSection
+EndGlobal
