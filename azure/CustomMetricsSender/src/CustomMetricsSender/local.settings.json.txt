@@ -1,0 +1,16 @@
+# DELETE THIS LINE and PROVIDE VALUES BELOW (I put in some defaults but override as needed), then save as local.settings.json (note removal of .txt extension) for local debugging
+{
+	"IsEncrypted": false,
+	"Values": {
+		"AzureWebJobsStorage": "UseDevelopmentStorage=true",
+		"FUNCTIONS_WORKER_RUNTIME": "dotnet",
+		"AzureRegion": "eastus2",
+		"AzureSubscriptionId": "PROVIDE",
+		"AsbResourceGroup": "PROVIDE",
+		"AsbNamespaceName": "PROVIDE",
+		"AsbConnectionString": "PROVIDE",
+		"AsbTopicName": "t1",
+		"AsbSubscriptionName": "s1",
+		"CustomMetricNamespace":  "CM-ASB"
+	}
+}
