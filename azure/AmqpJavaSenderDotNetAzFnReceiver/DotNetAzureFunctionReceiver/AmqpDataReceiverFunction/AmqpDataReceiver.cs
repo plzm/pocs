@@ -5,6 +5,7 @@ using System.Text;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Host;
 using Microsoft.Azure.ServiceBus;
+using Microsoft.Azure.ServiceBus.InteropExtensions;
 using Microsoft.Extensions.Logging;
 
 namespace AmqpDataReceiverFunction
@@ -27,37 +28,23 @@ namespace AmqpDataReceiverFunction
 
 				// Decode message body byte array as UTF8 string
 				messageBody = Encoding.UTF8.GetString(messageBodyBytes);
-
 				source = "Body";
 			}
 			else
 			{
-				// If we have message body null problem per https://github.com/Azure/azure-sdk-for-net/issues/6912, access the Message SystemProperties BodyObject
-				// This is an internal property inside a sealed child class of Message: https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/servicebus/Microsoft.Azure.ServiceBus/src/Message.cs#L512
-				// To access its value, we use Reflection to retrieve the property value
-				// NOTE that we are accessing an internal property. Future releases of Microsoft.Azure.ServiceBus may break this - there is NO GUARANTEE that this will keep working!
+				// If we have message body null per https://github.com/Azure/azure-sdk-for-net/issues/6912, access the Message SystemProperties BodyObject
+				// using the extension method GetBody<T>() - https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/servicebus/Microsoft.Azure.ServiceBus/src/Extensions/MessageInterOpExtensions.cs#L76
+				// Pass null for the XmlSerializer and String for the generic type to bypass deserialization internally
 				try
 				{
-					const string propName = "BodyObject";
-
-					object internalBodyObject =
-						message?
-						.SystemProperties?
-						.GetType()
-						.GetProperty(propName, BindingFlags.GetProperty | BindingFlags.Instance | BindingFlags.NonPublic)?
-						.GetValue(message.SystemProperties, BindingFlags.GetProperty | BindingFlags.Instance | BindingFlags.NonPublic, null, null, null)
-					;
-
-					messageBody = internalBodyObject.ToString();
-
-					source = "Internal BodyObject";
+					messageBody = message.GetBody<String>(null);
+					source = "BodyObject";
 				}
 				catch (Exception ex)
 				{
-					// TODO log exception
+					log.LogCritical(ex.Message);
 
 					messageBody = string.Empty;
-
 					source = "(ERROR)";
 				}
 			}
