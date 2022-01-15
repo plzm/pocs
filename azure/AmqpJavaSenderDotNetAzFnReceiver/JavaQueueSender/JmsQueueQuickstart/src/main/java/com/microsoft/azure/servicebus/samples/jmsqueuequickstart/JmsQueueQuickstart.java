@@ -24,7 +24,7 @@ public class JmsQueueQuickstart {
     // Queue name
     private static String queueName = "q1";
     // Number of messages to send
-    private static int totalSend = 25;
+    private static int totalSend = 1;
     //Tracking counter for how many messages have been received; used as termination condition
     private static AtomicInteger totalReceived = new AtomicInteger(0);
     // log4j logger 
@@ -62,9 +62,9 @@ public class JmsQueueQuickstart {
             // Send messages
             for (int i = 0; i < totalSend; i++) {
                 //BytesMessage message = session.createBytesMessage();
-                //message.writeBytes(String.valueOf(i).getBytes());
+                //message.writeBytes("ByteMessage ".concat(String.valueOf(i)).getBytes());
                 TextMessage message = session.createTextMessage();
-                message.setText("Message ".concat(String.valueOf(i)));
+                message.setText("TextMessage ".concat(String.valueOf(i)));
                 producer.send(message);
                 System.out.printf("Sent message %d.\n", i + 1);
             }
@@ -146,7 +146,7 @@ public class JmsQueueQuickstart {
                 connectionString = env;
             }
             else {
-                connectionString = "";
+                connectionString = "Endpoint=sb://pz-asb-eus2.servicebus.windows.net/;SharedAccessKeyName=Send;SharedAccessKey=wIJZJ8fCHiLcxPURuUbAiq5eyYHoJvkS05KKMhNk4dQ=";
             }
 
             if (connectionString == null) {
